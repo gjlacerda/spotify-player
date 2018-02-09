@@ -13,7 +13,7 @@ describe('AlbumInfo', () => {
         <p class="album-counter">18 Músicas</p>
     `;
 
-    const data = 
+    const data =
         {
           "album_type" : "album",
           "artists" : [ {
@@ -40,11 +40,16 @@ describe('AlbumInfo', () => {
           }
         }
     ;
-    
+
     it('should create and append the markup given the correct data', () => {
         const element = document.createElement('div');
         renderAlbumInfo(data, element);
 
         expect(element.innerHTML).html.to.equal(markup);
+    });
+
+    it('should return the data', () => {
+        const element2 = document.createElement('div');
+        expect(renderAlbumInfo(data, element2)).to.be.eql(data);
     });
 });
